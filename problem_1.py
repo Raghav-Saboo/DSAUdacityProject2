@@ -50,7 +50,9 @@ class LRUCache(object):
   def set(self, key, value):
     # Set the value if the key is not present in the cache. If the cache is
     # at capacity remove the oldest item.
-    if len(self.dic) == self.cap:
+    if self.cap <= 0:
+      return
+    if len(self.dic) >= self.cap:
       del self.dic[self.head.key]
       self.head = self.head.next
       self.head.prev = None
@@ -93,3 +95,13 @@ our_cache.set(6, 6)
 print('Pass' if our_cache.get(3) == -1 else 'Fail')
 # returns -1 because the cache reached it's capacity and 3 was the least
 # recently used entry
+
+# Test Case 4 Zero Capacity
+our_cache = LRUCache(0)
+our_cache.set(1, 1)
+print('Pass' if our_cache.get(1) == -1 else 'Fail')  # returns -1
+
+# Test Case 4 Negative Capacity
+our_cache = LRUCache(-2)
+our_cache.set(1, 1)
+print('Pass' if our_cache.get(1) == -1 else 'Fail')  # returns -1

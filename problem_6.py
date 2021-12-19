@@ -100,3 +100,41 @@ print(union(linked_list_3, linked_list_4))
 # Expected output - {65, 2, 35, 3, 4, 6, 1, 7, 8, 9, 11, 21, 23}
 print(intersection(linked_list_3, linked_list_4))
 # Expected output - {}
+
+# Test case 3 One list is empty
+
+linked_list_3 = LinkedList()
+linked_list_4 = LinkedList()
+
+element_1 = [1, 2, 3]
+element_2 = []
+
+for i in element_1:
+  linked_list_3.append(i)
+
+for i in element_2:
+  linked_list_4.append(i)
+
+print(union(linked_list_3, linked_list_4))
+# Expected output - {1, 2, 3}
+print(intersection(linked_list_3, linked_list_4))
+# Expected output - {}
+
+# Test case 4 Both lists are empty
+
+linked_list_3 = LinkedList()
+linked_list_4 = LinkedList()
+
+element_1 = []
+element_2 = []
+
+for i in element_1:
+  linked_list_3.append(i)
+
+for i in element_2:
+  linked_list_4.append(i)
+
+print(union(linked_list_3, linked_list_4))
+# Expected output - {}
+print(intersection(linked_list_3, linked_list_4))
+# Expected output - {}

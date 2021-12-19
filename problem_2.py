@@ -17,13 +17,15 @@ def find_files(suffix, path, ans):
   Returns:
      a list of paths
   """
+  if not os.path.isdir(path):
+    return
   for curr_file in os.listdir(path):
     abs_file_path = os.path.join(path, curr_file)
     if os.path.isfile(abs_file_path) and curr_file.endswith(suffix):
       ans.append(abs_file_path)
     elif os.path.isdir(abs_file_path):
       find_files(suffix, abs_file_path, ans)
-  return None
+  return
 
 
 # Test Case 1
@@ -45,4 +47,14 @@ print(
 # Test Case 3
 ans = []
 find_files(suffix='.java', path=os.curdir, ans=ans)
+print('Pass' if ans == [] else 'Fail')
+
+# Test Case 4 Empty Path
+ans = []
+find_files(suffix='.java', path='', ans=ans)
+print('Pass' if ans == [] else 'Fail')
+
+# Test Case 5 Invalid Path
+ans = []
+find_files(suffix='.java', path='cjkn[]acks', ans=ans)
 print('Pass' if ans == [] else 'Fail')
