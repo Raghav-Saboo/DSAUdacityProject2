@@ -1,5 +1,6 @@
 Huffman Coding
 
+
 - Design
     - All the characters and their frequency is inserted in a min heap.
     - Binary tree is constructed using the top two elements from the min heap.

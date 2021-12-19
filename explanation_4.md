@@ -1,5 +1,6 @@
 Active Directory
 
+
 - Design
     - A tree is used to represent all the groups and users in a group.
 - Time Complexity
