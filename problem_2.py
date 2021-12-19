@@ -26,6 +26,23 @@ def find_files(suffix, path, ans):
   return None
 
 
+# Test Case 1
 ans = []
 find_files(suffix='.h', path=os.curdir, ans=ans)
-print(ans)
+print(
+    'Pass' if ans == ['./testdir/subdir3/subsubdir1/b.h',
+                      './testdir/subdir5/a.h',
+                      './testdir/t1.h', './testdir/subdir1/a.h'] else 'Fail')
+
+# Test Case 2
+ans = []
+find_files(suffix='.c', path=os.curdir, ans=ans)
+print(
+    'Pass' if ans == ['./testdir/subdir3/subsubdir1/b.c', './testdir/t1.c',
+                      './testdir/subdir5/a.c',
+                      './testdir/subdir1/a.c'] else 'Fail')
+
+# Test Case 3
+ans = []
+find_files(suffix='.java', path=os.curdir, ans=ans)
+print('Pass' if ans == [] else 'Fail')

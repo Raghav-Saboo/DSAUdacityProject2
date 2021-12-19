@@ -43,8 +43,15 @@ sub_child = Group("subchild")
 sub_child_user = "sub_child_user"
 sub_child.add_user(sub_child_user)
 
+user = "user"
+parent.add_user(user)
+
 child.add_group(sub_child)
 parent.add_group(child)
 
+# Test Case 1
 print('Pass' if is_user_in_group(parent, sub_child_user) else 'Fail')
+# Test Case 2
 print('Pass' if not is_user_in_group(parent, 'random child') else 'Fail')
+# Test Case 3
+print('Pass' if is_user_in_group(parent, user) else 'Fail')
